@@ -1,0 +1,51 @@
+---
+title: "Datos de cantones de Costa Rica"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+```
+
+
+```{r paquetes}
+library(dplyr)
+library(sf)
+library(leaflet)
+```
+
+```{r lectura-de-datos}
+cantones <-
+  st_read( dsn = "C:/Users/gf0604-1/prsctics-gdsl/(tema 16) clase 4-07/cantones_simplificados.geojson") %>%
+  st_transform(4326)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### mapa de cantones
+
+```{r mapa}
+leaflet() %>%
+  addTiles() %>%
+
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+```
+
+### Chart C
+
+```{r}
+
+```
+
