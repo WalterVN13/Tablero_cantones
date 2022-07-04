@@ -11,15 +11,15 @@ library(flexdashboard)
 ```
 
 
-```{r paquetes}
+```{r paquetes, message=FALSE, warning=FALSE}
 library(dplyr)
 library(sf)
 library(leaflet)
 ```
 
-```{r lectura-de-datos}
+```{r lectura_de_datos}
 cantones <-
-  st_read( dsn = "C:/Users/gf0604-1/prsctics-gdsl/(tema 16) clase 4-07/cantones_simplificados.geojson") %>%
+  st_read( dsn= "cantones_simplificados.geojson", quiet=TRUE) %>%
   st_transform(4326)
 ```
 
@@ -31,6 +31,7 @@ Column {data-width=650}
 ```{r mapa}
 leaflet() %>%
   addTiles() %>%
+  addPolygons(data = cantones, weight = 1.0)
 
 ```
 
